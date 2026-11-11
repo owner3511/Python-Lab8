@@ -1,5 +1,9 @@
 def add_vat(price, vat_percent=18):
-    return price - (price * vat_percent/100)
-price = int(input("mehsulun qiymeti: "))
-vat_percent = int(input("edv: "))
-print(add_vat(price, vat_percent))
+    total = price + (price * vat_percent/100)
+    return(max(0, round(total, 2)))
+price_input = float(input("mehsulun qiymeti: "))
+vat_input = input("edv (ötürə bilərsiniz, default 18%): ")
+if vat_input.strip() == "":
+    print(add_vat(price_input))
+else:
+    print(add_vat(price_input, float(vat_input)))
